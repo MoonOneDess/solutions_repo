@@ -1,83 +1,314 @@
 # Problem 1
-Exploring Projectile Range as a Function of Launch Angle
+Investigating the Range as a Function of the Angle of Projection
+1. Theoretical Foundation
+Projectile motion is governed by Newton’s laws and can be derived from basic principles. Let’s assume a projectile is launched with initial velocity $v_0$ at angle $\theta$, under gravitational acceleration $g$, with no air resistance.
 
-1. Introduction
+Derivation of Equations
+Split the initial velocity into components:
 
-Projectile motion is a fascinating topic in physics, with applications ranging from sports to space exploration. In this document, we’ll take a closer look at how the range of a projectile depends on the launch angle. While the basic equations are simple, they reveal deep insights into motion and optimization.
+Horizontal: $v_{x0} = v_0 \cos\theta$
+Vertical: $v_{y0} = v_0 \sin\theta$
+Acceleration:
 
-2. Understanding the Equations
+$a_x = 0$ (no horizontal force)
+$a_y = -g$ (gravity acts downward)
+Horizontal Motion
 
-To analyze projectile motion, we start with Newton’s laws. Assuming there’s no air resistance, the only force acting on the projectile is gravity, which influences its vertical motion.
+With constant velocity:
+x
+(
+t
+)
+=
+v
+x
+0
+t
+=
+v
+0
+cos
+⁡
+θ
+⋅
+t
+x(t)=v 
+x0
+​	
+ t=v 
+0
+​	
+ cosθ⋅t
 
-Motion Equations
+Vertical Motion
 
-Horizontal Position:
-
-
-Vertical Position:
-
-
-where:
-
-$ v_0 $ is the initial velocity,
-
-$ \theta $ is the launch angle,
-
-$ g $ is gravitational acceleration.
+Using the kinematic equation:
+y
+(
+t
+)
+=
+v
+y
+0
+t
++
+1
+2
+a
+y
+t
+2
+y(t)=v 
+y0
+​	
+ t+ 
+2
+1
+​	
+ a 
+y
+​	
+ t 
+2
+ 
+Substitute:
+y
+(
+t
+)
+=
+v
+0
+sin
+⁡
+θ
+⋅
+t
+−
+1
+2
+g
+t
+2
+y(t)=v 
+0
+​	
+ sinθ⋅t− 
+2
+1
+​	
+ gt 
+2
+ 
 
 Time of Flight
 
-The projectile lands when $ y(t) = 0 $, giving:
+Set $y(t) = 0$ for ground-level launch:
+0
+=
+v
+0
+sin
+⁡
+θ
+⋅
+t
+−
+1
+2
+g
+t
+2
+0=v 
+0
+​	
+ sinθ⋅t− 
+2
+1
+​	
+ gt 
+2
+ 
+Factorize:
+t
+(
+v
+0
+sin
+⁡
+θ
+−
+1
+2
+g
+t
+)
+=
+0
+t(v 
+0
+​	
+ sinθ− 
+2
+1
+​	
+ gt)=0
+Solutions: $t = 0$ or:
+t
+=
+2
+v
+0
+sin
+⁡
+θ
+g
+t= 
+g
+2v 
+0
+​	
+ sinθ
+​	
+ 
+This is the time of flight, $T$.
 
+Family of Solutions
 
-Calculating the Range
+The trajectory $x(t)$ and $y(t)$ depends on $v_0$, $\theta$, and $g$, forming a family of parabolic curves.
 
-The horizontal range $ R $ is:
+2. Analysis of the Range
+The range $R$ is the horizontal distance at $t = T$:
+R
+=
+v
+0
+cos
+⁡
+θ
+⋅
+2
+v
+0
+sin
+⁡
+θ
+g
+R=v 
+0
+​	
+ cosθ⋅ 
+g
+2v 
+0
+​	
+ sinθ
+​	
+ 
+Using $2 \sin\theta \cos\theta = \sin(2\theta)$:
+R
+=
+v
+0
+2
+sin
+⁡
+(
+2
+θ
+)
+g
+R= 
+g
+v 
+0
+2
+​	
+ sin(2θ)
+​	
+ 
 
-Using the identity $ 2 \sin(\theta) \cos(\theta) = \sin(2\theta) $, we simplify:
+Angle Dependence
+$\sin(2\theta)$ peaks at 1 when $2\theta = 90^\circ$, so $\theta = 45^\circ$.
+Maximum range: 
+R
+m
+a
+x
+=
+v
+0
+2
+g
+ at 
+θ
+=
+4
+5
+∘
+R 
+max
+​	
+ = 
+g
+v 
+0
+2
+​	
+ 
+​	
+  at θ=45 
+∘
+ 
+At $\theta = 0^\circ$ or $90^\circ$, $R = 0$.
+Parameter Effects
+Initial Velocity ($v_0$): $R \propto v_0^2$, a quadratic relationship.
+Gravity ($g$): $R \propto \frac{1}{g}$, inversely proportional.
+3. Practical Applications
+Sports: A basketball shot follows $R = \frac{v_0^2 \sin(2\theta)}{g}$.
+Engineering: Cannon range optimization.
+Uneven Terrain: For launch height $h$, solve: 
+0
+=
+h
++
+v
+0
+sin
+⁡
+θ
+⋅
+t
+−
+1
+2
+g
+t
+2
+0=h+v 
+0
+​	
+ sinθ⋅t− 
+2
+1
+​	
+ gt 
+2
+ 
+Air Resistance: Requires numerical solutions beyond this model.
+4. Implementation
+Here’s a Python simulation:
+![alt text](Unknown-2.png)
 
+Graphical Representations
+The plot peaks at 45°, showing $R$’s dependence on $\sin(2\theta)$. Changing $v_0$ scales the curve, while $g$ shifts its magnitude.
 
-3. How Range Depends on Angle
-
-From the formula, the range reaches its maximum when $ \sin(2\theta) $ is largest, which happens at $ \theta = 45^\circ $.
-
-Effects of Other Parameters
-
-Increasing Initial Velocity: A higher $ v_0 $ increases range since $ R \propto v_0^2 $.
-
-Stronger Gravity: A higher $ g $ decreases range since $ R \propto 1/g $.
-
-4. Real-World Applications
-
-Projectile motion is more than just a theoretical exercise; it has real-world relevance:
-
-Sports: Optimizing angles in soccer, basketball, and javelin throws.
-
-Engineering: Understanding projectile trajectories in defense systems.
-
-Space Science: Calculating planetary probe paths.
-
-5. Coding a Simulation
-
-Let’s visualize the relationship between launch angle and range using Python:
-
-![alt text](Unknown-1.png)
-
-6. Beyond the Ideal Case
-
-While our analysis assumes an ideal world, real-life scenarios introduce complexities:
-
-Air Resistance: Slows the projectile and shortens the range.
-
-Uneven Ground: Alters the landing point.
-
-Wind: Can deflect the trajectory.
-
-Possible Extensions
-
-Implement air resistance in the model.
-
-Simulate projectiles launched from different heights.
-
-Understanding projectile motion isn’t just about solving equations—it’s about applying physics to real-life problems in an intuitive way!
-
+Limitations and Extensions
+Limitations
+No air resistance or wind.
+Assumes flat terrain and constant $g$.
+Extensions
+Drag: Add $F_d = -k v^2$.
+Wind: Modify $v_x$ with wind velocity.
+Height: Adjust $y(t)$ for $h \neq 0$.
