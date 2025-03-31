@@ -172,57 +172,298 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
-<p>Exploring Projectile Range as a Function of Launch Angle</p>
-<ol>
-<li>Introduction</li>
-</ol>
-<p>Projectile motion is a fascinating topic in physics, with applications ranging from sports to space exploration. In this document, we’ll take a closer look at how the range of a projectile depends on the launch angle. While the basic equations are simple, they reveal deep insights into motion and optimization.</p>
-<ol>
-<li>Understanding the Equations</li>
-</ol>
-<p>To analyze projectile motion, we start with Newton’s laws. Assuming there’s no air resistance, the only force acting on the projectile is gravity, which influences its vertical motion.</p>
-<p>Motion Equations</p>
-<p>Horizontal Position:</p>
-<p>Vertical Position:</p>
-<p>where:</p>
-<p>$ v_0 $ is the initial velocity,</p>
-<p>$ \theta $ is the launch angle,</p>
-<p>$ g $ is gravitational acceleration.</p>
+<p>Investigating the Range as a Function of the Angle of Projection
+1. Theoretical Foundation
+Projectile motion is governed by Newton’s laws and can be derived from basic principles. Let’s assume a projectile is launched with initial velocity <span class="arithmatex">\(v_0\)</span> at angle <span class="arithmatex">\(\theta\)</span>, under gravitational acceleration <span class="arithmatex">\(g\)</span>, with no air resistance.</p>
+<p>Derivation of Equations
+Split the initial velocity into components:</p>
+<p>Horizontal: <span class="arithmatex">\(v_{x0} = v_0 \cos\theta\)</span>
+Vertical: <span class="arithmatex">\(v_{y0} = v_0 \sin\theta\)</span>
+Acceleration:</p>
+<p><span class="arithmatex">\(a_x = 0\)</span> (no horizontal force)
+<span class="arithmatex">\(a_y = -g\)</span> (gravity acts downward)
+Horizontal Motion</p>
+<p>With constant velocity:
+x
+(
+t
+)
+=
+v
+x
+0
+t
+=
+v
+0
+cos
+⁡
+θ
+⋅
+t
+x(t)=v 
+x0
+​ <br/>
+ t=v 
+0
+​ <br/>
+ cosθ⋅t</p>
+<p>Vertical Motion</p>
+<p>Using the kinematic equation:
+y
+(
+t
+)
+=
+v
+y
+0
+t
++
+1
+2
+a
+y
+t
+2
+y(t)=v 
+y0
+​ <br/>
+ t+ 
+2
+1
+​ <br/>
+ a 
+y
+​ <br/>
+ t 
+2</p>
+<p>Substitute:
+y
+(
+t
+)
+=
+v
+0
+sin
+⁡
+θ
+⋅
+t
+−
+1
+2
+g
+t
+2
+y(t)=v 
+0
+​ <br/>
+ sinθ⋅t− 
+2
+1
+​ <br/>
+ gt 
+2</p>
 <p>Time of Flight</p>
-<p>The projectile lands when $ y(t) = 0 $, giving:</p>
-<p>Calculating the Range</p>
-<p>The horizontal range $ R $ is:</p>
-<p>Using the identity $ 2 \sin(\theta) \cos(\theta) = \sin(2\theta) $, we simplify:</p>
+<p>Set <span class="arithmatex">\(y(t) = 0\)</span> for ground-level launch:
+0
+=
+v
+0
+sin
+⁡
+θ
+⋅
+t
+−
+1
+2
+g
+t
+2
+0=v 
+0
+​ <br/>
+ sinθ⋅t− 
+2
+1
+​ <br/>
+ gt 
+2</p>
+<p>Factorize:
+t
+(
+v
+0
+sin
+⁡
+θ
+−
+1
+2
+g
+t
+)
+=
+0
+t(v 
+0
+​ <br/>
+ sinθ− 
+2
+1
+​ <br/>
+ gt)=0
+Solutions: <span class="arithmatex">\(t = 0\)</span> or:
+t
+=
+2
+v
+0
+sin
+⁡
+θ
+g
+t= 
+g
+2v 
+0
+​ <br/>
+ sinθ
+​   </p>
+<p>This is the time of flight, <span class="arithmatex">\(T\)</span>.</p>
+<p>Family of Solutions</p>
+<p>The trajectory <span class="arithmatex">\(x(t)\)</span> and <span class="arithmatex">\(y(t)\)</span> depends on <span class="arithmatex">\(v_0\)</span>, <span class="arithmatex">\(\theta\)</span>, and <span class="arithmatex">\(g\)</span>, forming a family of parabolic curves.</p>
 <ol>
-<li>How Range Depends on Angle</li>
+<li>Analysis of the Range
+The range <span class="arithmatex">\(R\)</span> is the horizontal distance at <span class="arithmatex">\(t = T\)</span>:
+R
+=
+v
+0
+cos
+⁡
+θ
+⋅
+2
+v
+0
+sin
+⁡
+θ
+g
+R=v 
+0
+​ <br/>
+ cosθ⋅ 
+g
+2v 
+0
+​ <br/>
+ sinθ
+​   </li>
 </ol>
-<p>From the formula, the range reaches its maximum when $ \sin(2\theta) $ is largest, which happens at $ \theta = 45^\circ $.</p>
-<p>Effects of Other Parameters</p>
-<p>Increasing Initial Velocity: A higher $ v_0 $ increases range since $ R \propto v_0^2 $.</p>
-<p>Stronger Gravity: A higher $ g $ decreases range since $ R \propto 1/g $.</p>
-<ol>
-<li>Real-World Applications</li>
-</ol>
-<p>Projectile motion is more than just a theoretical exercise; it has real-world relevance:</p>
-<p>Sports: Optimizing angles in soccer, basketball, and javelin throws.</p>
-<p>Engineering: Understanding projectile trajectories in defense systems.</p>
-<p>Space Science: Calculating planetary probe paths.</p>
-<ol>
-<li>Coding a Simulation</li>
-</ol>
-<p>Let’s visualize the relationship between launch angle and range using Python:</p>
-<p><img alt="alt text" src="../Unknown-1.png"/></p>
-<ol>
-<li>Beyond the Ideal Case</li>
-</ol>
-<p>While our analysis assumes an ideal world, real-life scenarios introduce complexities:</p>
-<p>Air Resistance: Slows the projectile and shortens the range.</p>
-<p>Uneven Ground: Alters the landing point.</p>
-<p>Wind: Can deflect the trajectory.</p>
-<p>Possible Extensions</p>
-<p>Implement air resistance in the model.</p>
-<p>Simulate projectiles launched from different heights.</p>
-<p>Understanding projectile motion isn’t just about solving equations—it’s about applying physics to real-life problems in an intuitive way!</p>
+<p>Using <span class="arithmatex">\(2 \sin\theta \cos\theta = \sin(2\theta)\)</span>:
+R
+=
+v
+0
+2
+sin
+⁡
+(
+2
+θ
+)
+g
+R= 
+g
+v 
+0
+2
+​ <br/>
+ sin(2θ)
+​   </p>
+<p>Angle Dependence
+<span class="arithmatex">\(\sin(2\theta)\)</span> peaks at 1 when <span class="arithmatex">\(2\theta = 90^\circ\)</span>, so <span class="arithmatex">\(\theta = 45^\circ\)</span>.
+Maximum range: 
+R
+m
+a
+x
+=
+v
+0
+2
+g
+ at 
+θ
+=
+4
+5
+∘
+R 
+max
+​ <br/>
+ = 
+g
+v 
+0
+2
+​   </p>
+<p>​ <br/>
+  at θ=45 
+∘</p>
+<p>At <span class="arithmatex">\(\theta = 0^\circ\)</span> or <span class="arithmatex">\(90^\circ\)</span>, <span class="arithmatex">\(R = 0\)</span>.
+Parameter Effects
+Initial Velocity (<span class="arithmatex">\(v_0\)</span>): <span class="arithmatex">\(R \propto v_0^2\)</span>, a quadratic relationship.
+Gravity (<span class="arithmatex">\(g\)</span>): <span class="arithmatex">\(R \propto \frac{1}{g}\)</span>, inversely proportional.
+3. Practical Applications
+Sports: A basketball shot follows <span class="arithmatex">\(R = \frac{v_0^2 \sin(2\theta)}{g}\)</span>.
+Engineering: Cannon range optimization.
+Uneven Terrain: For launch height <span class="arithmatex">\(h\)</span>, solve: 
+0
+=
+h
++
+v
+0
+sin
+⁡
+θ
+⋅
+t
+−
+1
+2
+g
+t
+2
+0=h+v 
+0
+​ <br/>
+ sinθ⋅t− 
+2
+1
+​ <br/>
+ gt 
+2</p>
+<p>Air Resistance: Requires numerical solutions beyond this model.
+4. Implementation
+Here’s a Python simulation:
+<img alt="alt text" src="../Unknown-2.png"/></p>
+<p>Graphical Representations
+The plot peaks at 45°, showing <span class="arithmatex">\(R\)</span>’s dependence on <span class="arithmatex">\(\sin(2\theta)\)</span>. Changing <span class="arithmatex">\(v_0\)</span> scales the curve, while <span class="arithmatex">\(g\)</span> shifts its magnitude.</p>
+<p>Limitations and Extensions
+Limitations
+No air resistance or wind.
+Assumes flat terrain and constant <span class="arithmatex">\(g\)</span>.
+Extensions
+Drag: Add <span class="arithmatex">\(F_d = -k v^2\)</span>.
+Wind: Modify <span class="arithmatex">\(v_x\)</span> with wind velocity.
+Height: Adjust <span class="arithmatex">\(y(t)\)</span> for <span class="arithmatex">\(h \neq 0\)</span>.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
