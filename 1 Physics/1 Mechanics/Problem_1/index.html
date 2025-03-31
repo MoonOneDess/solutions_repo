@@ -172,55 +172,56 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
-<h1 id="exploring-projectile-range-as-a-function-of-launch-angle">Exploring Projectile Range as a Function of Launch Angle</h1>
-<h2 id="1-introduction">1. Introduction</h2>
+<p>Exploring Projectile Range as a Function of Launch Angle</p>
+<ol>
+<li>Introduction</li>
+</ol>
 <p>Projectile motion is a fascinating topic in physics, with applications ranging from sports to space exploration. In this document, we’ll take a closer look at how the range of a projectile depends on the launch angle. While the basic equations are simple, they reveal deep insights into motion and optimization.</p>
-<h2 id="2-understanding-the-equations">2. Understanding the Equations</h2>
+<ol>
+<li>Understanding the Equations</li>
+</ol>
 <p>To analyze projectile motion, we start with Newton’s laws. Assuming there’s no air resistance, the only force acting on the projectile is gravity, which influences its vertical motion.</p>
-<h3 id="motion-equations">Motion Equations</h3>
-<ul>
-<li><strong>Horizontal Position:</strong>
-  [ x(t) = v_0 \cos(\theta) t ]</li>
-<li><strong>Vertical Position:</strong>
-  [ y(t) = v_0 \sin(\theta) t - \frac{1}{2} g t^2 ]</li>
-</ul>
-<p>where:
-- <span class="arithmatex">\( v_0 \)</span> is the initial velocity,
-- <span class="arithmatex">\( \theta \)</span> is the launch angle,
-- <span class="arithmatex">\( g \)</span> is gravitational acceleration.</p>
-<h3 id="time-of-flight">Time of Flight</h3>
-<p>The projectile lands when <span class="arithmatex">\( y(t) = 0 \)</span>, giving:
-[ t = \frac{2 v_0 \sin(\theta)}{g} ]</p>
-<h3 id="calculating-the-range">Calculating the Range</h3>
-<p>The horizontal range <span class="arithmatex">\( R \)</span> is:
-[ R = v_0 \cos(\theta) \times \frac{2 v_0 \sin(\theta)}{g} ]
-Using the identity <span class="arithmatex">\( 2 \sin(\theta) \cos(\theta) = \sin(2\theta) \)</span>, we simplify:
-[ R = \frac{v_0^2}{g} \sin(2\theta) ]</p>
-<h2 id="3-how-range-depends-on-angle">3. How Range Depends on Angle</h2>
-<p>From the formula, the range reaches its maximum when <span class="arithmatex">\( \sin(2\theta) \)</span> is largest, which happens at <span class="arithmatex">\( \theta = 45^\circ \)</span>.</p>
-<h3 id="effects-of-other-parameters">Effects of Other Parameters</h3>
-<ul>
-<li><strong>Increasing Initial Velocity:</strong> A higher <span class="arithmatex">\( v_0 \)</span> increases range since <span class="arithmatex">\( R \propto v_0^2 \)</span>.</li>
-<li><strong>Stronger Gravity:</strong> A higher <span class="arithmatex">\( g \)</span> decreases range since <span class="arithmatex">\( R \propto 1/g \)</span>.</li>
-</ul>
-<h2 id="4-real-world-applications">4. Real-World Applications</h2>
-<p>Projectile motion is more than just a theoretical exercise; it has real-world relevance:
-- <strong>Sports:</strong> Optimizing angles in soccer, basketball, and javelin throws.
-- <strong>Engineering:</strong> Understanding projectile trajectories in defense systems.
-- <strong>Space Science:</strong> Calculating planetary probe paths.</p>
-<h2 id="5-coding-a-simulation">5. Coding a Simulation</h2>
+<p>Motion Equations</p>
+<p>Horizontal Position:</p>
+<p>Vertical Position:</p>
+<p>where:</p>
+<p>$ v_0 $ is the initial velocity,</p>
+<p>$ \theta $ is the launch angle,</p>
+<p>$ g $ is gravitational acceleration.</p>
+<p>Time of Flight</p>
+<p>The projectile lands when $ y(t) = 0 $, giving:</p>
+<p>Calculating the Range</p>
+<p>The horizontal range $ R $ is:</p>
+<p>Using the identity $ 2 \sin(\theta) \cos(\theta) = \sin(2\theta) $, we simplify:</p>
+<ol>
+<li>How Range Depends on Angle</li>
+</ol>
+<p>From the formula, the range reaches its maximum when $ \sin(2\theta) $ is largest, which happens at $ \theta = 45^\circ $.</p>
+<p>Effects of Other Parameters</p>
+<p>Increasing Initial Velocity: A higher $ v_0 $ increases range since $ R \propto v_0^2 $.</p>
+<p>Stronger Gravity: A higher $ g $ decreases range since $ R \propto 1/g $.</p>
+<ol>
+<li>Real-World Applications</li>
+</ol>
+<p>Projectile motion is more than just a theoretical exercise; it has real-world relevance:</p>
+<p>Sports: Optimizing angles in soccer, basketball, and javelin throws.</p>
+<p>Engineering: Understanding projectile trajectories in defense systems.</p>
+<p>Space Science: Calculating planetary probe paths.</p>
+<ol>
+<li>Coding a Simulation</li>
+</ol>
 <p>Let’s visualize the relationship between launch angle and range using Python:</p>
-<p><img alt="alt text" src="../Unknown.png"/></p>
-<h2 id="6-beyond-the-ideal-case">6. Beyond the Ideal Case</h2>
-<p>While our analysis assumes an ideal world, real-life scenarios introduce complexities:
-- <strong>Air Resistance:</strong> Slows the projectile and shortens the range.
-- <strong>Uneven Ground:</strong> Alters the landing point.
-- <strong>Wind:</strong> Can deflect the trajectory.</p>
-<h3 id="possible-extensions">Possible Extensions</h3>
-<ul>
-<li>Implement air resistance in the model.</li>
-<li>Simulate projectiles launched from different heights.</li>
-</ul>
+<p><img alt="alt text" src="../Unknown-1.png"/></p>
+<ol>
+<li>Beyond the Ideal Case</li>
+</ol>
+<p>While our analysis assumes an ideal world, real-life scenarios introduce complexities:</p>
+<p>Air Resistance: Slows the projectile and shortens the range.</p>
+<p>Uneven Ground: Alters the landing point.</p>
+<p>Wind: Can deflect the trajectory.</p>
+<p>Possible Extensions</p>
+<p>Implement air resistance in the model.</p>
+<p>Simulate projectiles launched from different heights.</p>
 <p>Understanding projectile motion isn’t just about solving equations—it’s about applying physics to real-life problems in an intuitive way!</p>
 </div>
 </div><footer>
